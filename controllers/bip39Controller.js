@@ -5,3 +5,10 @@ exports.generateMnemonic = (req, res) => {
 
   res.send({ mnemonic });
 };
+
+exports.validateMnemonic = (req, res) => {
+  const { mnemonic } = req.body;
+  const isValid = bip39.validateMnemonic(mnemonic);
+
+  res.send({ isValid });
+};
